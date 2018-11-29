@@ -1,0 +1,33 @@
+{
+  "name": "omnicore-start-kit",
+  "version": "0.0.1",
+  "description": "A OmniLayer chain start kit.",
+  "main": "index.js",
+  "scripts": {
+    "demo": "babel-node demo/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yugasun/omnicore-start-kit.git"
+  },
+  "keywords": [
+    "omnilayer",
+    "blockchain",
+    "start-kit"
+  ],
+  "author": "yugasun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yugasun/omnicore-start-kit/issues"
+  },
+  "homepage": "https://github.com/yugasun/omnicore-start-kit#readme",
+  "dependencies": {
+    "bitcoind-rpc": "^0.7.2",
+    "bitcoinjs-lib": "^4.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1"
+  }
+}
