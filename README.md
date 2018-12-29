@@ -1,5 +1,7 @@
 # OmniLayer Start kit
 
+[简体中文](./README.zh-CN.md) | English
+
 A OmniLayer chain start kit.
 
 ## Prepare docker environment
@@ -31,7 +33,7 @@ Now you can do anything you want with the omnicore chain.
 ### Issue new coin
 
 ```bash
-# btc mining
+# issue new coin is also a bitcoin transaction, so we need mining.
 omnicore-cli generate 100
 
 # generate owner address
@@ -68,7 +70,7 @@ omnicore-cli generate 1
 #    8. url                  (string, required) an URL for further information about the new tokens (can be "")
 #    9. data                 (string, required) a description for the new tokens (can be "")
 #    10. amount              (string, required) the number of tokens to create
-#    
+#
 #    Result:
 #    "hash"                  (string) the hex-encoded transaction hash
 ###
@@ -85,7 +87,7 @@ omnicore-cli generate 1
 ```bash
 ######################## Prepare Transaction
 echo "Start Prepare Transaction -------"
-# this command is depend on issue-new-coin.sh, where owner address store
+# this command is depend on issue-new-coin.sh, where owner address store, you can also generate a new one.
 sender_address=`cat /root/owner-address`
 
 # new coin property id, it depends.
@@ -112,13 +114,13 @@ sender_private_key=`omnicore-cli dumpprivkey $sender_address`
 
 # generate receive new coin address
 receiver_address=`omnicore-cli getnewaddress`
-echo "Receiver: "$receiver_address ## mvoHVB9V9WkudWwrz7qabdn7XRLysvUFvo
+echo "Receiver: "$receiver_address
 
 # will transfer new coin amount, set it by yourself
 yuga_amount=10
 
 # generate omni layer payload for new coin tx
-payload=`omnicore-cli omni_createpayload_simplesend $property_id $yuga_amount` 
+payload=`omnicore-cli omni_createpayload_simplesend $property_id $yuga_amount`
 echo "Payload: "$payload
 
 ######################## Create Transaction
@@ -166,8 +168,8 @@ echo "All done."
 6f6d6e69000000000000001f000000003b9aca00
 ```
 
-> * Omni prefix: `6f6d6e69` which can not be modifed.
-> * Proterty Id: `000000000000001f` -> `31` is for master chain `Tether(USDT)`, you can modified it depends on your omni coin property id. For example when you create regtest chain, your first omni coin property id will be `3`, so you need change to `0000000000000003`.
+> * Omni prefix: `6f6d6e69` which can not be modified.
+> * Property Id: `000000000000001f` -> `31` is for master chain `Tether(USDT)`, you can modified it depends on your omni coin property id. For example when you create regtest chain, your first omni coin property id will be `3`, so you need change to `0000000000000003`.
 > * Transfer Amount: `000000003b9aca00` -> is `10 * 10000000` omni coin amount in hex.
 
 ## Transfer Coins (Simple Send)
@@ -184,6 +186,17 @@ In addition to the validity constraints on the message field datatypes, the tran
 * the specified currency identifier is 0 (bitcoin)
 
 A Simple Send to a non-existent address will destroy the coins in question, just like it would with bitcoin.
+
+## USDT controller for nodejs
+
+`src/usdt-controller.js` is a controller for USDT simple transaction, you can use it for:
+
+* Generate a new address with wif.
+* Handle simple transaction.
+* Fetch address unspent.
+* Broadcast raw transaction.
+
+[demo](./demo/app.js)
 
 ## License
 

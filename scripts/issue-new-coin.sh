@@ -3,6 +3,10 @@
 # -e: when the return of command is unequal 0, shell will be exited.
 set -e
 
+# Why need generate 100 before our coin issue?
+#   When a block becomes an orphan block, all of its valid transactions are re-added to the pool of queued transactions and will be included in another block.
+#   The 50 BTC reward for the orphan block will be lost, which is why a network-enforced 100-block maturation time for generations exists.
+# Refer to https://bitcoin.stackexchange.com/questions/1991/what-is-the-block-maturation-time
 # btc mining
 omnicore-cli generate 100
 
@@ -40,11 +44,11 @@ omnicore-cli generate 1
 #    8. url                  (string, required) an URL for further information about the new tokens (can be "")
 #    9. data                 (string, required) a description for the new tokens (can be "")
 #    10. amount              (string, required) the number of tokens to create
-#    
+#
 #    Result:
 #    "hash"                  (string) the hex-encoded transaction hash
 ###
-omnicore-cli omni_sendissuancefixed $address 1 2 0 "rmbtCategory" "rmbtSubcategory" "rmbt" "www.rmbt.com" "rmbt for test" "100000"
+omnicore-cli omni_sendissuancefixed $address 1 2 0 "yugaCategory" "yugaSubcategory" "yuga" "yugasun.com" "yuga for test" "100000"
 
 # blockchain confirm
 omnicore-cli generate 1

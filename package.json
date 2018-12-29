@@ -1,33 +1,48 @@
 {
-  "name": "omnicore-start-kit",
-  "version": "0.0.1",
-  "description": "A OmniLayer chain start kit.",
-  "main": "index.js",
-  "scripts": {
-    "demo": "babel-node demo/app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yugasun/omnicore-start-kit.git"
-  },
-  "keywords": [
-    "omnilayer",
-    "blockchain",
-    "start-kit"
-  ],
-  "author": "yugasun",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/yugasun/omnicore-start-kit/issues"
-  },
-  "homepage": "https://github.com/yugasun/omnicore-start-kit#readme",
-  "dependencies": {
-    "bitcoind-rpc": "^0.7.2",
-    "bitcoinjs-lib": "^4.0.2"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-2": "^6.24.1"
-  }
+    "name": "omnilayer-start-kit",
+    "version": "0.0.1",
+    "description": "A OmniLayer chain start kit.",
+    "main": "index.js",
+    "scripts": {
+        "demo": "babel-node demo/app.js",
+        "test": "nyc mocha --require babel-register && rm -rf ./test/logs/.env-*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yugasun/omnilayer-start-kit.git"
+    },
+    "keywords": [
+        "omnilayer",
+        "blockchain",
+        "start-kit"
+    ],
+    "author": "yugasun",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/yugasun/omnilayer-start-kit/issues"
+    },
+    "homepage": "https://github.com/yugasun/omnilayer-start-kit#readme",
+    "dependencies": {
+        "bitcoind-rpc": "^0.7.2",
+        "bitcoinjs-lib": "^4.0.2",
+        "chalk": "^2.4.1",
+        "dotenv": "^6.2.0",
+        "request": "^2.88.0",
+        "request-promise-native": "^1.0.5",
+        "varuint-bitcoin": "^1.1.0"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-stage-2": "^6.24.1",
+        "babel-register": "^6.26.0",
+        "chai": "^4.2.0",
+        "mocha": "^5.2.0",
+        "nyc": "^13.1.0"
+    },
+    "engines": {
+        "node": ">= 10.0.0",
+        "npm": ">= 5.6.0"
+    }
 }
